@@ -1,0 +1,81 @@
+/* ========================================================================
+ * PlantUML : a free UML diagram generator
+ * ========================================================================
+ *
+ * (C) Copyright 2009-2017, Arnaud Roques
+ *
+ * Project Info:  http://plantuml.com
+ * 
+ * This file is part of PlantUML.
+ *
+ * Licensed under The MIT License (Massachusetts Institute of Technology License)
+ * 
+ * See http://opensource.org/licenses/MIT
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+ * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * 
+ *
+ * Original Author:  Arnaud Roques
+ */
+package net.sourceforge.plantuml.project;
+
+class Duration implements Numeric {
+
+	private final long minutes;
+
+	public Duration(long minutes) {
+		this.minutes = minutes;
+	}
+
+	public Duration(NumericNumber value) {
+		this(value.getIntValue() * 24L * 60 * 60);
+	}
+
+	public Numeric add(Numeric other) {
+		return new Duration(((Duration) other).minutes + minutes);
+	}
+
+	public static Duration of(long days) {
+		return new Duration(days * 24 * 60 * 60);
+	}
+
+	public NumericType getNumericType() {
+		return NumericType.DURATION;
+	}
+
+	public long getMinutes() {
+		return minutes;
+	}
+
+	@Override
+	public String toString() {
+		return "DURATION:" + minutes / (24 * 60 * 60);
+	}
+
+	public int compareTo(Numeric other) {
+		final Duration this2 = (Duration) other;
+		if (this2.minutes > minutes) {
+			return -1;
+		}
+		if (this2.minutes < minutes) {
+			return 1;
+		}
+		return 0;
+	}
+
+}
