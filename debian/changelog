@@ -1,0 +1,24 @@
+plantuml (8039-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #816501).
+  * Unbreak PDF rendering (Closes: #807928):
+    - Depend on libfop-java and libbatik-java
+    - Edit Class-Path to point to batik and fop.
+  * Add watch file (Closes: #822094).
+  * Update debian/copyright (Closes: #822092).
+
+ -- Andrew Shadura <andrewsh@debian.org>  Sat, 30 Apr 2016 13:37:08 +0200
+
+plantuml (8024-2) unstable; urgency=medium
+
+  * Recommend graphviz, not depend on it (Closes: #793104).
+  * Allow non-default Java runtimes (Closes: #793110).
+  * Mention output formats in the long description (Closes: #793112).
+
+ -- Andrew Shadura <andrewsh@debian.org>  Tue, 21 Jul 2015 15:02:31 +0200
+
+plantuml (8024-1) unstable; urgency=medium
+
+  * Initial upload.
+
+ -- Andrew Shadura <andrewsh@debian.org>  Tue, 05 May 2015 15:52:55 +0200

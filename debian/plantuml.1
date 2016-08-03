@@ -1,0 +1,81 @@
+.TH PLANTUML 1 "March 8, 2010"
+.SH NAME
+plantuml \- program to generate UML diagram from a text description
+.SH SYNOPSIS
+.B plantuml
+.RI [ options ] " files/dirs" ...
+.SH DESCRIPTION
+\fIPlantUML\fP is used to draw UML diagram, using a simple and human readable text description.
+.PP
+Notice that \fBgraphviz\fP is required to be installed for generation of all
+diagrams but sequence diagrams.
+.PP
+When files/directories are given, they are processed in batch mode. Otherwise GUI
+window appears. It allows user to browse directories and view diagrams generated
+from suitable files (must have one of the following extensions: \fI.txt\fP,
+\fI.tex\fP, \fI.java\fP, \fI.htm\fP, \fI.html\fP, \fI.c\fP, \fI.h\fP, \fI.cpp\fP).
+.PP
+You can use the following wildcards in files/dirs:
+.TP
+.B *
+means any characters but '/'
+.TP
+.B ?
+one and only one character but '/'
+.TP
+.B **
+means any characters (used to recurse through directories)
+.SH OPTIONS
+.TP
+.B \-tsvg
+Generate images using SVG format.
+.TP
+\fB\-output\fI dir\fP, \fB\-o\fI dir
+Generate images in the specified directory.
+.TP
+\fB\-config\fI file
+Read the provided config file before each diagram.
+.TP
+\fB\-charset\fI xxx
+Use a specific charset (default is UTF\-8).
+.TP
+\fB\-exclude\fI pattern\fP, \fB\-x\fI pattern
+Exclude files that match the provided pattern.
+.TP
+.B \-metadata
+Retrieve \fIPlantUML\fP sources from PNG images.
+.TP
+.B \-version
+Display information about \fIPlantUML\fP and Java versions.
+.TP
+\fB\-verbose\fP, \fB\-v
+Have log information.
+.TP
+.B \-keepfiles
+NOT delete temporary files after process.
+.TP
+\fB\-help\fP, \fB\-h
+Display help message.
+.TP
+.B \-testdot
+Test the installation of \fBgraphviz\fP.
+.TP
+\fB\-graphvizdot\fI path
+Specify dot path.
+.TP
+\fB\-pipe\fP, \fB\-p
+Use stdin for \fIPlantUML\fP source and stdout for PNG/SVG generation.
+.TP
+.B \-computeurl
+Compute the encoded URL of a \fIPlantUML\fP source file.
+.TP
+.B \-decodeurl
+Retrieve the \fIPlantUML\fP source from an encoded URL.
+.SH SEE ALSO
+.BR graphviz (1).
+.br
+.SH AUTHOR
+\fIPlantUML\fP was written by Arnaud Roques <plantuml@gmail.com>.
+.PP
+This manual page was written by Ilya Paramonov <ivparamonov@gmail.com>,
+for the Debian project (and may be used by others).

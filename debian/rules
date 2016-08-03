@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	rm -rf build dist
+
+override_dh_auto_build:
+	dh_auto_build -- dist
+
+override_dh_auto_install:
+	install -m 755 $(CURDIR)/debian/plantuml.sh $(CURDIR)/debian/plantuml/usr/bin/plantuml
+
+.PHONY: override_dh_auto_clean override_dh_auto_build override_dh_auto_install

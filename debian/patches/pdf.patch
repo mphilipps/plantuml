@@ -1,0 +1,13 @@
+Subject: Specify Class-Path to the libraries needed to support PDF (#807928).
+
+--- a/build.xml
++++ b/build.xml
+@@ -55,7 +55,7 @@
+ 			<manifest>
+ 				<attribute name="Main-Class" value="net.sourceforge.plantuml.Run" />
+ 				<attribute name="SplashScreen-Image" value="net/sourceforge/plantuml/version/logo.png" />
+-				<attribute name="Class-Path" value="batik-all-1.7.jar fop.jar" />
++				<attribute name="Class-Path" value="/usr/share/java/batik-rasterizer.jar /usr/share/java/batik-transcoder.jar /usr/share/java/fop.jar" />
+ 			</manifest>
+ 		</jar>
+ 		<delete dir="build" />

@@ -1,0 +1,37 @@
+Source: plantuml
+Section: graphics
+Priority: optional
+Maintainer: Andrew Shadura <andrewsh@debian.org>
+Build-Depends:
+ ant, ant-contrib,
+ javacc,
+ debhelper (>= 9),
+ default-jdk,
+ libfop-java,
+ libbatik-java
+Standards-Version: 3.9.6
+Homepage: http://plantuml.net/
+
+Package: plantuml
+Architecture: all
+Depends:
+ ${misc:Depends},
+ default-jre | java-runtime,
+ libfop-java,
+ libbatik-java
+Recommends: graphviz
+Description: text-to-UML converter
+ PlantUML is a program allowing to draw UML diagrams, using a simple
+ human readable text description.
+ .
+ PlantUML supports the following diagram types:
+   - sequence diagram
+   - use case diagram
+   - class diagram
+   - activity diagram
+   - component diagram
+   - state diagram
+ .
+ Output images can be generated in PNG, in SVG or LaTeX format.
+ PlantUML also supports generation of ASCII art diagrams (only for
+ sequence diagrams).
